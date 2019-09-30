@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|sting|null: false|
 |email|text|null: false|
 |created_at|datetime|null: false|
 |update_at|datetime|null: false|
@@ -12,13 +12,14 @@
 ### Association
 - has_many :tweets
 - has_many :groups,through::groups_users
+- has_many :groups_users
 
 ## tweetsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 |text|text|
 |image|string|
 
@@ -30,21 +31,22 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 |created_at|datetime|null: false|
 |update_at|datetime|null: false|
 
 
 ### Association
 - has_many :users,through::groups_users
-- belongs_to :user
+- has_many :groups_users
+- belongs_to :tweets
 
 ## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
