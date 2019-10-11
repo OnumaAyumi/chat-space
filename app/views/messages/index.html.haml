@@ -21,17 +21,18 @@
   .chat-main
     .main-header 
       .main-header__left-box
-        %h2.main-header__left-box__current-group
-        %ul.main-header__left-box__member-list
-          %li.main-header__left-box__member-list__member
+        %h2.main-header__left-box__current-group header
+        %ul.main-header__left-box__member-list 
+          %li.main-header__left-box__member-list__member 
+          Member
           %a{:href => "/groups/1897/edit"}
       .main-header__edit-btn Edit
     
     .messages
       .message 
         .message_upper-info
-          %p.message__upper-info__talker
-          %p.message__upper-info__date
+          %p.message__upper-info__talker talk
+          %p.message__upper-info__date 2019
 
       %p.message__text
     .form
@@ -42,3 +43,4 @@
           %i.fa.fa-image
       %input.input-box__image__file
       %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+
