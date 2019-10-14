@@ -150,8 +150,8 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
   overflow: scroll;
 }
 
-.message__upper-info{
-
+.message_upper-info{
+  display: flex;
   &__talker {
   color: #434a54;
   font-size: 16px;
@@ -162,7 +162,6 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
   color: #999999;
   font-size: 12px;
   margin-left: 10px;
-  width:100%;
 }
 
 }
@@ -183,12 +182,11 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 
 .new_message{
     display: flex;
+    width: calc(100vw - 300px);
 }
 
 .input-box {
   position: relative;
-  width: 100%;
-
   &__text {
   height: 50px;
   width: 100%;
@@ -209,13 +207,6 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
   display: none;
 }
 }
-
-
-
-
-
-
-
 
 .fa.fa-image{
   display: inline-block;
