@@ -1,41 +1,24 @@
 $(function(){ 
   function buildHTML(message){
-   if ( message.image ) {
-     var html =
-        `<div class="message" >
-          <div class="message_upper-info">
-            <p class="message_upper-info__talker">
-              ${message.user_name}
-            </p>
-            <p class="message_upper-info__date">
-              ${message.date}
-            </p>
-          </div>
-            <p class="message__text">
-              ${message.content}
-            </p>
-          <img src=${message.image} >
-        </div>`
+   var img = message.image == null ? "" : `<img src=${message.image} ></img>`
+
+    var html =
+      `<div class="message" >
+        <div class="message_upper-info">
+          <p class="message_upper-info__talker">
+            ${message.user_name}
+          </p>
+          <p class="message_upper-info__date">
+            ${message.date}
+          </p>
+        </div>
+          <p class="message__text">
+            ${message.content}
+          </p>
+          ${img}
+      </div>`
      return html;
-   } else {
-     var html =
-    `<div class="message" >
-     <div class="message_upper-info">
-        <p class="message_upper-info__talker">
-          ${message.user_name}
-        </p>
-        <p class="message_upper-info__date">
-          ${message.date}
-        </p>
-     </div>
-        <p class="message__text">
-          ${message.content}
-        </p>
-         
-    </div>`
-     return html;
-   };
- }
+    }
  
   $(document).on("turbolinks:load",function(){
 
