@@ -1,33 +1,19 @@
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name
-          user-name
-        %ul.side-header__box__menu 
-          %li.side-header__box__menu__new-group
-            = link_to "" do
-              %i.fa.fa-edit{class:"edit"}
-          %li.side-header__box__menu__edit-user
-            = link_to "" do
-              %i.fa.fa-cog{class:"cog"}
-    .groups
-      .group
-      %p.group__group-name
-        group
-      %p.group__latest-content_message
-        last-message
+  = render 'devise/shared/side_bar'
 
   .chat-main
     .main-header 
       .main-header__left-box
         %h2.main-header__left-box__current-group
-          group
-        %ul.main-header__left-box__member-list 
-          member: user-name
-          %li.main-header__left-box__member-list__member 
+          = @group.name
+        %ul.main-header__left-box__member-list
+          - @group.users.each do |i|
+            %li.main-header__left-box__member-list__member
+              =i.name
+
           %link_to{href: "/groups/1897/edit"}
-      .main-header__edit-btn Edit
+      .main-header__edit-btn
+        = link_to "Edit",edit_group_path(@group.id)
 
     .messages
       = render @messages
