@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  gem 'mini_magick'
  gem 'jquery-rails'
  gem 'jquery-turbolinks'
+ group :production do
+  gem 'unicorn', '5.4.1'
+end
