@@ -18,3 +18,4 @@
 
 #uploadsディレクトリはコミットしない
 public/uploads/*
+config/secrets.yml
