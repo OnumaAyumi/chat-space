@@ -50,7 +50,8 @@ $(function(){
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    last_message_id = $('.message').last().data('message-id');
+    const last_message_id = $('.message').last().data('message-id');
+    console.log(last_message_id);
     $.ajax({
       //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
       url: 'api/messages',
@@ -75,6 +76,7 @@ $(function(){
     alert('自動更新に失敗しました。')
   })
   }
+}
   setInterval(reloadMessages, 5000);
-  }
+  
 });
