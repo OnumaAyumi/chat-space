@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load",function(){
-  $(function(){
+  // $(function(){
     var search_list = $("#user-search-result");
-    var member_list = $("#member_search_result");
+    var member_list = $("#chat-group-users");
   function appendUser(user){
       var html = `
                 <div class="chat-group-user clearfix">
@@ -55,19 +55,18 @@ $(document).on("turbolinks:load",function(){
     .fail(function() {
       alert("ユーザー検索に失敗しました");
     })
-
-    $(function(){
-      $(document).on('click', '.user-search-add', function() {
+  });
+    $(search_list).on('click', '.user-search-add', function() {
         var name = $(this).data("user-name");
         var user_id = $(this).data("user-id");
         $(this).parent().remove();
         appendMembers(name, user_id);
       });
         
-    $(document).on('click', '.user-search-remove', function(){
-     $(this).parent().remove();
+      $('#chat-group-users').on('click', '.user-search-remove', function(){
+        console.log(this)
+        $(this).parent().remove();
       });
-    });
-  });
+// })
 })
-})
+
